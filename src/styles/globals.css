@@ -1,4 +1,55 @@
-
 .volume-tooltip {
   z-index: 9999 !important;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoom-in {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes zoom-out {
+  from { transform: scale(1); }
+  to { transform: scale(0.95); }
+}
+
+.animate-in {
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-out {
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.fade-out {
+  animation-name: fade-out;
+}
+
+.zoom-in-50 {
+  animation-name: zoom-in;
+}
+
+.zoom-out-50 {
+  animation-name: zoom-out;
+}
+
+.duration-200 {
+  animation-duration: 200ms;
 }

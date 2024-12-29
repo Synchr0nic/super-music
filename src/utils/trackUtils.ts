@@ -2,6 +2,7 @@ import { Track } from '../types/track';
 
 export const createEmptyTrack = (position: number): Track => ({
   id: crypto.randomUUID(),
+  contributor: 'burgil',
   name: `Track ${position + 1}`,
   audioBuffer: null,
   position,

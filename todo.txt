@@ -1,0 +1,25 @@
+ok now something is very wrong with playing audio:
+1) when I click the green play button on the transport area it doesnt play all tracks at the same time
+2) when I click the stop button on the transport it doesnt move the red bar to the start
+3) there isn't any thin red line all over the timeline just on the top beats columns
+4) I can't hover the volume bar and its zindex is under things
+5) when I upload files they start to play right away I dont want it
+6) when I manually play the files from the tracks the button stays on pause instead of going back to play when the track finished playing
+7) when I manually play a track a red line spawns inside the track that doesnt follow the play time but there is already a way for the track to show its playing state when I just drag it on the page it does it, there is already something that follow the playing progress instead of the red thing
+1) you can't play audio
+2) the grid is messed up compared to the track list
+3) track should not have microphone
+4) track should have a user profile (contributor)
+5) the audio files should be in a box that you can drag around the tracks and timeline
+6) cutting audios files
+7) place files by left clicking
+8) right click delete files
+9) can only move files not vertically
+10) timeline should not be by seconds it should be by beats
+11) upvotes for contributions
+
+(Contributions work like this, users can mute, delete edit, and add tracks, when they are done they click “submit” and that users version of the project is played when a user hovers selects it)
+
+After a arbitrary timer, When owner accepts new changes to the project. Giving time to people to make contributions without the project moving to rapidly so that you can’t change things
+
+The playhead in my audio editing software is not playing any audio. The playhead moves, but there is no sound. when i click pause the playhead should stop where it is currently and not reset, also there should be a reset playhead button which is just a "stop" button, so a play pause and stop

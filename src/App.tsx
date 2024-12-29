@@ -12,10 +12,12 @@ function App() {
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-white">
       <Transport />
-      <div className="flex-1 overflow-hidden flex flex-col">
-        <TrackList />
-        <FileUpload />
+      <div className="flex-1 overflow-auto">
+        <div className="inline-block min-w-full">
+          <TrackList />
+        </div>
       </div>
+      <FileUpload />
     </div>
   );
 }

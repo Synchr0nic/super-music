@@ -17,7 +17,8 @@ export const useWaveform = (audioBuffer: AudioBuffer | null, zoom: number) => {
         barWidth: 2,
         barGap: 1,
         height: 65 - 23,
-        normalize: true
+        normalize: true,
+        interact: true, // Enable interaction
       });
 
       // Convert AudioBuffer to Blob
@@ -45,13 +46,21 @@ export const useWaveform = (audioBuffer: AudioBuffer | null, zoom: number) => {
     };
   }, [audioBuffer]);
 
-  // useEffect(() => {
-  //   if (isReady && wavesurfer.current) {
-  //     wavesurfer.current.zoom(zoom * 50);
-  //   }
-  // }, [zoom, isReady]);
+  useEffect(() => {
+    if (isReady && wavesurfer.current) {
+      wavesurfer.current.zoom(zoom * 50);
+    }
+  }, [zoom, isReady]);
 
-  return waveformRef;
+  const playAudio = () => {
+    wavesurfer.current?.play();
+  };
+
+  const pauseAudio = () => {
+    wavesurfer.current?.pause();
+  };
+
+  return { waveformRef, playAudio, pauseAudio, wavesurfer: wavesurfer.current };
 };
 
 // Convert AudioBuffer to WAV format

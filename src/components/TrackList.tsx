@@ -7,7 +7,7 @@ import { Timeline } from './Timeline';
 import { useAudioStore } from '../store/useAudioStore';
 
 export const TrackList: React.FC = () => {
-  const { tracks, moveTrack, initializeTracks } = useAudioStore();
+  const { bpm, zoom, duration, tracks, moveTrack, initializeTracks, currentTime } = useAudioStore();
 
   useEffect(() => {
     // Only initialize if there are no tracks
@@ -26,17 +26,28 @@ export const TrackList: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 overflow-hidden">
+    <div className="flex flex-col relative">
       <Timeline />
-      <div className="relative flex-1 overflow-auto min-h-screen">
-        <Grid />
-        <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-          <SortableContext items={tracks.map(t => t.id)} strategy={verticalListSortingStrategy}>
-            {tracks.map((track, index) => (
-              <Track key={track.id} index={index} {...track} />
-            ))}
-          </SortableContext>
-        </DndContext>
+      <div className="relative min-h-screen">
+        <div style={{ 
+          width: `${Math.max(duration * zoom * 200, window.innerWidth - 200)}px`,
+          minHeight: tracks.length * 65  // Height based on number of tracks
+        }}>
+          <Grid />
+          <div
+            className="absolute top-0 bottom-0 w-[2px] bg-red-500/50 z-50"
+            style={{ 
+              left: `${currentTime * (bpm / 60) * 65 * zoom + 200}px`,
+            }}
+          />
+          <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={tracks.map(t => t.id)} strategy={verticalListSortingStrategy}>
+              {tracks.map((track, index) => (
+                <Track key={track.id} index={index} {...track} />
+              ))}
+            </SortableContext>
+          </DndContext>
+        </div>
       </div>
     </div>
   );

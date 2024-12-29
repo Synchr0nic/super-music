@@ -6,4 +6,5 @@ export interface Track {
   muted: boolean;
   solo: boolean;
   volume: number;
+  contributor: string; // New property
 }
